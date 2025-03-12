@@ -2,6 +2,17 @@ import json
 import requests
 import xml.etree.ElementTree as ET
 import datetime
+from datetime import datetime
+
+# Obtener la fecha y hora actual
+fecha_actual = datetime.utcnow().strftime("%d/%m/%Y %H:%M")
+
+# Crear la cabecera del XML con la fecha
+cabecera = f'<?xml version="1.0" encoding="UTF-8"?>\n'
+cabecera += f'<tv generator-info-name="Epg Movistar {fecha_actual}" >\n'
+
+# Abre el archivo para escribir la cabecera y demás datos
+with open('guiaiptv.xml', 'w', encoding='utf-8') as
 
 # Descargar los datos JSON desde la URL
 url = 'https://ottcache.dof6.com/movistarplus/webplayer/DIFUSION/contents/epg'
